@@ -18,6 +18,10 @@ public class Sucursal implements BaseEntity<Sucursal>{
 		this.direccion = direccion;
 		this.nombre = nombre;
 	}
+	
+	public Sucursal() {
+		
+	}
 
 //Getters
 	public Long getId() {

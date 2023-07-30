@@ -19,7 +19,11 @@ public class Cuenta implements BaseEntity<Cuenta> {
 		this.balance = balance;
 	}
 
-
+	public Cuenta() {
+		
+	}
+	
+	
 //Getters
 public Long getId() {
 		return id;

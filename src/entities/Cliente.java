@@ -28,6 +28,10 @@ public class Cliente implements BaseEntity<Cliente>{
 		this.pin = pin;
 	}
 	
+	public Cliente() {
+		
+	}
+	
 //Getters
 	public String getNombre() {
 		return nombre;

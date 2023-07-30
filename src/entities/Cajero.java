@@ -16,6 +16,10 @@ public class Cajero implements BaseEntity<Cajero>{
 		this.ubicacion = ubicacion;
 		this.sucursal = sucursal;
 	}
+	
+	public Cajero() {
+		
+	}
 
 //Getters
 	public Long getId() {

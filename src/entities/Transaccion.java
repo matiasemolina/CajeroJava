@@ -13,7 +13,7 @@ public class Transaccion implements BaseEntity<Transaccion> {
 	
 	
 //Constructor	
-public Transaccion(Long id, Date fechaTransaccion, Double monto, Long nroTransaccion, Cuenta cuentaOrigen) {
+	public Transaccion(Long id, Date fechaTransaccion, Double monto, Long nroTransaccion, Cuenta cuentaOrigen) {
 		super();
 		this.id = id;
 		this.fechaTransaccion = fechaTransaccion;
@@ -21,46 +21,50 @@ public Transaccion(Long id, Date fechaTransaccion, Double monto, Long nroTransac
 		this.nroTransaccion = nroTransaccion;
 		this.cuentaOrigen = cuentaOrigen;
 	}
+	
+	public Transaccion() {
+		
+	}
 
 //Getters
 	public Long getId() {
-	return id;
+		return id;
 	}
 
 	public Date getFechaTransaccion() {
-	return fechaTransaccion;
+		return fechaTransaccion;
 	}
 
 	public Double getMonto() {
-	return monto;
+		return monto;
 	}
 
 	public Long getNroTransaccion() {
-	return nroTransaccion;
+		return nroTransaccion;
 	}
 
 	public Cuenta getCuentaOrigen() {
-	return cuentaOrigen;
+		return cuentaOrigen;
 	}
 //Setters
 	public void setId(Long id) {
-	this.id = id;
+		this.id = id;
 	}
 
 	public void setFechaTransaccion(Date fechaTransaccion) {
-	this.fechaTransaccion = fechaTransaccion;
+		this.fechaTransaccion = fechaTransaccion;
 	}
 
 	public void setMonto(Double monto) {
-	this.monto = monto;
+		this.monto = monto;
 	}
 
 	public void setNroTransaccion(Long nroTransaccion) {
-	this.nroTransaccion = nroTransaccion;
+		this.nroTransaccion = nroTransaccion;
 	}
 
 	public void setCuentaOrigen(Cuenta cuentaOrigen) {
-	this.cuentaOrigen = cuentaOrigen;
+		this.cuentaOrigen = cuentaOrigen;
 	}
 
 //Methods
