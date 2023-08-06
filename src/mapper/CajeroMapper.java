@@ -39,7 +39,7 @@ public class CajeroMapper implements BaseMapper<Cajero>{
 			PreparedStatement prepareStatement=ConectorBD.getInstance().getConnection().prepareStatement(sql);
 			prepareStatement.setLong(1, t.getId());
 			prepareStatement.setString(2, t.getUbicacion());
-			prepareStatement.setObject(3, t.getSucursal());
+			prepareStatement.setLong(3, t.getSucursal().getId());
 			return prepareStatement;
 		}catch(SQLException e) {
 			e.printStackTrace();
