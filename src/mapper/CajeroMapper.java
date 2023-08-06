@@ -3,20 +3,28 @@ package mapper;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import controlador.ConectorBD;
 import entities.Cajero;
+import entities.Sucursal;
+import controlador.SucursalController;
+
 public class CajeroMapper implements BaseMapper<Cajero>{
 
 	@Override
 	public Cajero toEntity(ResultSet resultSet) {
 		// TODO Auto-generated method stub
 		Cajero resultado = new Cajero();
+		List<Sucursal> sucursal = new ArrayList<>();
+		SucursalController sc= new SucursalController();
 		try {
 			//faltan los .set
 			resultado.setId(resultSet.getLong("id"));
 			resultado.setUbicacion(resultSet.getString("ubicacion"));
-			resultado.setSucursal(resultSet.getLong("id_sucursal"));
+			sucursal=sc.getById(resultSet.getLong("id_sucursal"));
+			resultado.setSucursal(sucursal.get(0));
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
