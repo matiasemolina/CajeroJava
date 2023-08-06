@@ -101,7 +101,7 @@ public class CajeroController extends ControladorBase<Cajero>{
 			PreparedStatement prepareStatement=ConectorBD.getInstance().getConnection().prepareStatement(sql);
 			prepareStatement.setLong(1, cajero.getId());
 			prepareStatement.setString(2, cajero.getUbicacion());
-			prepareStatement.setObject(3, cajero.getSucursal());
+			prepareStatement.setLong(3, cajero.getSucursal().getId());
 			response = prepareStatement.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
