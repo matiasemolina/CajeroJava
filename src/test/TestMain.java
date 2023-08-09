@@ -10,6 +10,7 @@ public class TestMain {
 		Scanner scanner = new Scanner(System.in);
         int opcion;
         boolean continua;
+        String usuario, contrasenia;
         do {
         	continua=true;
             System.out.println("=== Menú de Consola ===");
@@ -21,6 +22,11 @@ public class TestMain {
             switch (opcion) {
                 case 1:
                     System.out.println("Has seleccionado la opcion de iniciar sesion.");
+                    System.out.println("Ingresa el usuario: ");
+                    usuario = scanner.nextLine();
+                    System.out.println("Ingresa la contraseña: ");
+                    contrasenia = scanner.nextLine();
+                    
                     // Aquí puedes agregar la lógica para la opción 1
                     break;
                 case 2:
