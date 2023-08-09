@@ -59,7 +59,7 @@ public class CajeroController extends ControladorBase<Cajero>{
 		return response;
 	}
 	
-	public List<Cajero> getByUbicacion(Sucursal sucursal){
+	public List<Cajero> getBySucursal(Sucursal sucursal){
 		Cajero cajero=new Cajero();
 		cajero.setSucursal(sucursal);
 		String query ="Select * from CAJERO where CAJERO.id_sucursal = ?";
