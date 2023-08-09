@@ -63,7 +63,7 @@ public class CuentaController extends ControladorBase<Cuenta>{
 	public List<Cuenta> getByNroCuenta(String nroCuenta){
 		Cuenta cuenta = new Cuenta();
 		cuenta.setNroCuenta(nroCuenta);
-		String query = "Select * from CUENTA where CUENTA.nroCuenta = ?";
+		String query = "Select * from CUENTA where CUENTA.nro_cuenta = ?";
 		List <Cuenta> response = getByParameters(cuenta, query);
 		return response;
 	}
@@ -99,7 +99,7 @@ public class CuentaController extends ControladorBase<Cuenta>{
 	}
 	
 	public Integer insert(Cuenta request) {
-		String query="INSERT INTO CUENTA(id, id_cuenta_cliente, nroCuenta, balance) VALUES (?,?,?,?)";
+		String query="INSERT INTO CUENTA(id, id_cuenta_cliente, nro_cuenta, balance) VALUES (?,?,?,?)";
 		return insert(request,query);
 	}
 	
