@@ -1,11 +1,9 @@
 package entities;
 
-import java.sql.Date;
-
-public class CajaDeAhorro extends Transaccion {
-
-	public CajaDeAhorro(Long id, Date fechaTransaccion, Double monto, Long nroTransaccion, Cuenta cuentaOrigen) {
-		super(id, fechaTransaccion, monto, nroTransaccion, cuentaOrigen);
+public class CajaDeAhorro extends Cuenta {
+	
+	public CajaDeAhorro(Long id, Cliente owner, String nroCuenta, Double balance) {
+		super(id, owner, nroCuenta, balance);
 	}
-
+	
 }

@@ -10,16 +10,18 @@ public class Transaccion implements BaseEntity<Transaccion> {
 	public Double monto;
 	public Long nroTransaccion;
 	public Cuenta cuentaOrigen;
+	public String tipoTransaccion;
 	
 	
 //Constructor	
-	public Transaccion(Long id, Date fechaTransaccion, Double monto, Long nroTransaccion, Cuenta cuentaOrigen) {
+	public Transaccion(Long id, Date fechaTransaccion, Double monto, Long nroTransaccion, Cuenta cuentaOrigen, String tipoTransaccion) {
 		super();
 		this.id = id;
 		this.fechaTransaccion = fechaTransaccion;
 		this.monto = monto;
 		this.nroTransaccion = nroTransaccion;
 		this.cuentaOrigen = cuentaOrigen;
+		this.tipoTransaccion=tipoTransaccion;
 	}
 	
 	public Transaccion() {
@@ -46,6 +48,10 @@ public class Transaccion implements BaseEntity<Transaccion> {
 	public Cuenta getCuentaOrigen() {
 		return cuentaOrigen;
 	}
+	
+	public String getTipoTransaccion() {
+		return tipoTransaccion;
+	}
 //Setters
 	public void setId(Long id) {
 		this.id = id;
@@ -65,6 +71,10 @@ public class Transaccion implements BaseEntity<Transaccion> {
 
 	public void setCuentaOrigen(Cuenta cuentaOrigen) {
 		this.cuentaOrigen = cuentaOrigen;
+	}
+	
+	public void setTipoTransaccion(String tipoTransaccion) {
+		this.tipoTransaccion=tipoTransaccion;
 	}
 
 //Methods
