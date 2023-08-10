@@ -74,7 +74,7 @@ public class ClienteController extends ControladorBase<Cliente>{
 	public List<Cliente> getByNumeroTarjeta(String numeroTarjeta){
 		Cliente cliente = new Cliente();
 		cliente.setNumeroTarjeta(numeroTarjeta);
-		String query = "Select * from CLIENTE where CLIENTE.numeroTarjeta = ?";
+		String query = "Select * from CLIENTE where CLIENTE.numero_tarjeta = ?";
 		List<Cliente> response = getByParameters(cliente, query);
 		return response;
 	}
@@ -127,7 +127,7 @@ public class ClienteController extends ControladorBase<Cliente>{
 	}
 	
 	public Integer insert(Cliente request) {
-		String query="INSERT INTO CLIENTE(id, nombre, direccion, numeroTarjeta, contrasenia, usuario, pin) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String query="INSERT INTO CLIENTE(id, nombre, direccion, numero_tarjeta, contrasenia, usuario, pin) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		return insert(request, query);
 	}
 	

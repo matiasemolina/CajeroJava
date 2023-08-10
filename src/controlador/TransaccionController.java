@@ -43,6 +43,10 @@ public class TransaccionController extends ControladorBase<Transaccion>{
 				prepareStatement.setLong(5, request.getCuentaOrigen().getId());
 			}
 			
+			if(request.getTipoTransaccion()!=null) {
+				prepareStatement.setString(6, request.getTipoTransaccion());
+			}
+			
 			ResultSet resultado=prepareStatement.executeQuery();
 			while(resultado.next()) {
 				response.add(mappeador.toEntity(resultado));
@@ -64,7 +68,7 @@ public class TransaccionController extends ControladorBase<Transaccion>{
 	public List<Transaccion> getByFechaTransaccion(Date fechaTransaccion){
 		Transaccion transaccion = new Transaccion();
 		transaccion.setFechaTransaccion(fechaTransaccion);
-		String query="Select * from TRANSACCIONES where TRANSACCIONES.fechaTransaccion = ?";
+		String query="Select * from TRANSACCIONES where TRANSACCIONES.fecha_transaccion = ?";
 		List<Transaccion> response = getByParameters(transaccion, query);
 		return response;
 	}
@@ -80,7 +84,7 @@ public class TransaccionController extends ControladorBase<Transaccion>{
 	public List<Transaccion> getByNroTransaccion(Long nroTransaccion){
 		Transaccion transaccion = new Transaccion();
 		transaccion.setNroTransaccion(nroTransaccion);
-		String query = "Select * from TRANSACCIONES where TRANSACCIONES.nroTransaccion = ?";
+		String query = "Select * from TRANSACCIONES where TRANSACCIONES.nro_transaccion = ?";
 		List<Transaccion> response = getByParameters(transaccion, query);
 		return response;
 	}
@@ -89,6 +93,14 @@ public class TransaccionController extends ControladorBase<Transaccion>{
 		Transaccion transaccion = new Transaccion();
 		transaccion.setCuentaOrigen(cuentaOrigen);
 		String query = "Select * from TRANSACCIONES where TRANSACCIONES.id_cuenta = ?";
+		List<Transaccion> response = getByParameters(transaccion, query);
+		return response;
+	}
+	
+	public List<Transaccion> getByTipoTransaccion(String tipoTransaccion){
+		Transaccion transaccion = new Transaccion();
+		transaccion.setTipoTransaccion(tipoTransaccion);
+		String query = "Select * from TRANSACCIONES where TRANSACCIONES.tipo_transaccion = ?";
 		List<Transaccion> response = getByParameters(transaccion, query);
 		return response;
 	}
@@ -117,7 +129,7 @@ public class TransaccionController extends ControladorBase<Transaccion>{
 	}
 	
 	public Integer insert(Transaccion request) {
-		String query = "INSERT INTO TRANSACCIONES(id, fechaTransaccion, monto, nroTransaccion, id_cuenta) VALUES (?,?,?,?,?)";
+		String query = "INSERT INTO TRANSACCIONES(id, fecha_transaccion, monto, nro_transaccion, id_cuenta, tipo_transaccion) VALUES (?,?,?,?,?,?)";
 		return insert(request, query);
 	}
 	
@@ -131,6 +143,7 @@ public class TransaccionController extends ControladorBase<Transaccion>{
 			prepareStatement.setDouble(3, transaccion.getMonto());
 			prepareStatement.setLong(4, transaccion.getNroTransaccion());
 			prepareStatement.setLong(5, transaccion.getCuentaOrigen().getId());
+			prepareStatement.setString(6, transaccion.getTipoTransaccion());
 			response=prepareStatement.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
